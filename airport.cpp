@@ -1,6 +1,6 @@
 #include "airport.h"
 
-Airport::Airport(int airport_id, string name, string city, double latitude, double longitude) {
+Airport::Airport(string airport_id, string name, string city, double latitude, double longitude) {
   airport_id_ = airport_id;
   name_ = name;
   city_ = city;
