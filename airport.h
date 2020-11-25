@@ -8,12 +8,14 @@ class Airport {
   private:
     int airport_id_;
     string name_;
+    string city_;
     double latitude_;
     double longitude_;
 
   public:
-    Airport(int airport_id_, string name_, double latitude_, double longitude_);
+    Airport(int airport_id, string name, string city, double latitude, double longitude);
     string getName();
-    string getLatitude();
-    string getLongitude();
+    string getCity();
+    double getLatitude();
+    double getLongitude();
 };

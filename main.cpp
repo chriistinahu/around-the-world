@@ -1,9 +1,14 @@
 #include <iostream>
 
+#include "loader.cpp"
+#include "route.h"
+#include "airport.h"
+
+
 using std::cout;
 using std::endl;
 
 int main() {
-  cout << "hello from main!!!" << endl;
+  loadDataFromRouteFile("routes.txt");
   return 0;
 }
