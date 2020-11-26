@@ -31,7 +31,7 @@ $(EXENAME): output_msg $(OBJS)
 	$(LD) $(OBJS) $(LDFLAGS) -o $(EXENAME)
 
 main.o: main.cpp loader.h route.h airport.h graph.h
-	$(CXX) $(CXXFLAGS) main.cpp loader.cpp
+	$(CXX) $(CXXFLAGS) main.cpp loader.h
 
 loader.o: loader.cpp loader.h
 	$(CXX) $(CXXFLAGS) loader.cpp

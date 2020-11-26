@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "loader.cpp"
+#include "loader.h"
 #include "route.h"
 #include "airport.h"
 

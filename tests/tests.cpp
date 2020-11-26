@@ -10,7 +10,7 @@ TEST_CASE("Confirm distance calculation works") {
 
     // Boston coords
     double lat_2 = 42.3601;
-    double long_2 = -71.0589;
+    double long_2 = 71.0589;
 
     double distanceBtwn = getDistanceFromLatLong(lat_1, long_1, lat_2, long_2);
 
