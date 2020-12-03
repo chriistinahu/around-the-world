@@ -47,7 +47,7 @@ graph.o: graph.h graph.cpp edge.h
 
 
 test: output_msg catchmain.o tests/tests.cpp airport.o route.o graph.o loader.o
-	$(LD) catchmain.o tests/tests.cpp main.o airport.o route.o graph.o loader.o $(LDFLAGS) -o test
+	$(LD) catchmain.o tests/tests.cpp airport.o route.o graph.o loader.o $(LDFLAGS) -o test
 
 catchmain.o: catch/catchmain.cpp catch/catch.hpp
 	$(CXX) $(CXXFLAGS) cs225/catch/catchmain.cpp

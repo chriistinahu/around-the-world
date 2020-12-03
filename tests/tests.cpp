@@ -1,5 +1,5 @@
 #include "../cs225/catch/catch.hpp"
-#include "../loader.cpp"
+#include "../loader.h"
 
 TEST_CASE("Confirm distance calculation works") {
     // Boston to Chicago (1580.3 km)
