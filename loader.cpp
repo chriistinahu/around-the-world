@@ -34,7 +34,6 @@ vector<Route> loadDataFromRouteFile(const string& filename) {
     while (getline(ss, field, ',')) {
       info.push_back(field);
     }
-
     Route route(info.at(3), info.at(5));
     routes.push_back(route);
   }
@@ -64,31 +63,31 @@ Graph createGraph(string routes_file, string airports_file) {
 
   Graph graph(true, true);
 
-  // traverse the routes vector
-  //    from each route object, get airport id
-  //    using airport id, get airport object
-  // create vertices/ find vertices
-  // connect verices -- create edge
-  // find distance
-  // set edge weight
-
   for (Route route : routes) {
     string source_port_id = route.getSrcAirport();
     string dest_port_id = route.getDestAirport();
-    
-    if (!graph.vertexExists(source_port_id)) {
-      graph.insertVertex(source_port_id);   
-    } 
-    if (!graph.vertexExists(dest_port_id)) {
-      graph.insertVertex(dest_port_id);
-    }
 
-    graph.insertEdge(source_port_id, dest_port_id);
-    Airport source_port = airports.at(source_port_id);
-    Airport dest_port = airports.at(dest_port_id);
-    double dist = getDistanceFromLatLong(source_port.getLatitude(), source_port.getLongitude(),
-                                         dest_port.getLatitude(), dest_port.getLongitude());
-    graph.setEdgeWeight(source_port_id, dest_port_id, dist);
+    // check if source and destination exist in airports data
+    if (airports.find(dest_port_id) != airports.end() &&
+      airports.find(source_port_id) != airports.end()) {
+      
+      // if exists and source vertex does not exist, create and add vertex in graph
+      if (!graph.vertexExists(source_port_id)) {
+        graph.insertVertex(source_port_id);   
+      } 
+      // if exists and destination vertex does not exist, create and add vertex in graph
+      if (!graph.vertexExists(dest_port_id)) {
+        graph.insertVertex(dest_port_id);
+      }
+      // create edge connecting source and dest
+      graph.insertEdge(source_port_id, dest_port_id);
+      Airport source_port = airports.at(source_port_id);
+      Airport dest_port = airports.at(dest_port_id);
+      double dist = getDistanceFromLatLong(source_port.getLatitude(), source_port.getLongitude(),
+                                          dest_port.getLatitude(), dest_port.getLongitude());
+      graph.setEdgeWeight(source_port_id, dest_port_id, dist);
+    }    
   }
+
   return graph;
 }
