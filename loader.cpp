@@ -37,7 +37,6 @@ vector<Route> loadDataFromRouteFile(const string& filename) {
 
     Route route(info.at(3), info.at(5));
     routes.push_back(route);
-    cout << info.at(3) << endl;
   }
 	return routes;
 
@@ -58,9 +57,10 @@ double getDistanceFromLatLong(double lat_1, double long_1, double lat_2, double 
 /// vertices hold airport id
 /// directed edges represent that there is a route from an airport to another airport
 /// edge weights represent distance of the route from airport to another airport
-Graph createGraph() {
-  vector<Route> routes = loadDataFromRouteFile("routes.txt");
-  map<string, Airport> airports = loadDataFromAirportFile("airports.txt");
+Graph createGraph(string routes_file, string airports_file) {
+
+  vector<Route> routes = loadDataFromRouteFile(routes_file);
+  map<string, Airport> airports = loadDataFromAirportFile(airports_file);
 
   Graph graph(true, true);
 
@@ -72,13 +72,12 @@ Graph createGraph() {
   // find distance
   // set edge weight
 
-  
   for (Route route : routes) {
     string source_port_id = route.getSrcAirport();
     string dest_port_id = route.getDestAirport();
     
     if (!graph.vertexExists(source_port_id)) {
-      graph.insertVertex(source_port_id);
+      graph.insertVertex(source_port_id);   
     } 
     if (!graph.vertexExists(dest_port_id)) {
       graph.insertVertex(dest_port_id);

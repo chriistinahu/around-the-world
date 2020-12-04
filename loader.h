@@ -22,4 +22,4 @@ vector<Route> loadDataFromRouteFile(const string& filename);
 
 double getDistanceFromLatLong(double lat_1, double long_1, double lat_2, double long_2);
 
-Graph createGraph();
+Graph createGraph(string routes_file, string airports_file);

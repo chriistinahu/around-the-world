@@ -1,6 +1,9 @@
 #include "../cs225/catch/catch.hpp"
 #include "../loader.h"
+#include "../bfs.h"
+#include "../graph.h"
 
+using namespace traversals;
 
 TEST_CASE("Calculate Distance Between Coordinates #1") {
     // Boston to Chicago (1580.3 km)
@@ -38,4 +41,20 @@ TEST_CASE("Calculate Distance Between Coordinates #2") {
     // our calculated distance will never be completely accurate since the earth is not a perfect sphere
     // so, just require that it is within 85% of actual value
     REQUIRE( (distanceBtwn >= 952 * 0.85 || distanceBtwn <= 952 * 1.15) );
+}
+
+TEST_CASE("Subgraph on Peru: path skips airport") {
+    // Expected Path: IQT -> PCL -> LIM -> AQP -> CUZ
+    // AQP -> JUL -> CUZ is a possible path but is longer so path bypasses JUL
+    // 2801, 2781, 2789, 2802, 2812
+    vector<Vertex> corr_path{"2801", "2781", "2789", "2802", "2812"};
+    
+    BFS bfs;
+    Graph g = createGraph("tests/test_route.txt", "tests/test_airports.txt");
+
+    g.savePNG("hello");
+    g.print();
+    vector<Vertex> path = bfs.BFS_get_path(g, "2801", "2812");
+    
+    REQUIRE(path == corr_path);
 }

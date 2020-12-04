@@ -1,5 +1,5 @@
 EXENAME = main
-OBJS = main.o loader.o airport.o route.o graph.o
+OBJS = main.o loader.o airport.o route.o graph.o bfs.o
 
 CXX = clang++
 CXXFLAGS = $(CS225) -std=c++1y -stdlib=libc++ -c -g -O0 -Wall -Wextra -pedantic
@@ -30,7 +30,7 @@ output_msg: ; $(CLANG_VERSION_MSG)
 $(EXENAME): output_msg $(OBJS)
 	$(LD) $(OBJS) $(LDFLAGS) -o $(EXENAME)
 
-main.o: main.cpp loader.h route.h airport.h graph.h
+main.o: main.cpp loader.h route.h airport.h graph.h bfs.h
 	$(CXX) $(CXXFLAGS) main.cpp loader.h
 
 loader.o: loader.cpp loader.h
@@ -45,9 +45,11 @@ route.o: route.h route.cpp
 graph.o: graph.h graph.cpp edge.h
 	$(CXX) $(CXXFLAGS) graph.cpp
 
+bfs.o: bfs.h bfs.cpp graph.h
+	$(CXX) $(CXXFLAGS) bfs.cpp
 
-test: output_msg catchmain.o tests/tests.cpp airport.o route.o graph.o loader.o
-	$(LD) catchmain.o tests/tests.cpp airport.o route.o graph.o loader.o $(LDFLAGS) -o test
+test: output_msg catchmain.o tests/tests.cpp airport.o route.o graph.o loader.o bfs.o
+	$(LD) catchmain.o tests/tests.cpp airport.o route.o graph.o loader.o bfs.o $(LDFLAGS) -o test
 
 catchmain.o: catch/catchmain.cpp catch/catch.hpp
 	$(CXX) $(CXXFLAGS) cs225/catch/catchmain.cpp
