@@ -20,6 +20,7 @@ TEST_CASE("Calculate Distance Between Coordinates #1") {
 
     // our calculated distance will never be completely accurate since the earth is not a perfect sphere
     // so, just require that it is within 85% of actual value
+    std::cout << distanceBtwn << std::endl;
     REQUIRE( (distanceBtwn >= 1580.3 * 0.85 || distanceBtwn <= 1580.3 * 1.15) );
 }
 
@@ -51,6 +52,7 @@ TEST_CASE("Subgraph on Peru: path skips airport") {
     
     BFS bfs;
     Graph g = createGraph("tests/test_route.txt", "tests/test_airports.txt");
+    g.print();
     vector<Vertex> path = bfs.BFS_get_path(g, "2801", "2812");
     
     REQUIRE(path == corr_path);

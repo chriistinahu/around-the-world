@@ -385,11 +385,11 @@ void Graph::print() const
             ss << it2->first; 
             string vertexColumn = "    => " + ss.str();
             vertexColumn += " " ;
-            cout << std::left << std::setw(26) << vertexColumn;
-            string edgeColumn = "edge label = \"" + it2->second.getLabel()+ "\"";
-            cout << std::left << std::setw(26) << edgeColumn;
+            cout << std::left << std::setw(15) << vertexColumn;
+            string edgeColumn = "\x1b[1medge label\x1b[0m = \"" + it2->second.getLabel();
+            cout << std::left << std::setw((it2->second.getLabel()).size() + 26) << edgeColumn;
             if (weighted)
-                cout << "weight = " << it2->second.getWeight();
+                cout << "\x1b[1mweight\x1b[0m = " << it2->second.getWeight();
             cout << endl;
         }
         cout << endl;

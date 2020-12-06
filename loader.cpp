@@ -85,7 +85,10 @@ Graph createGraph(string routes_file, string airports_file) {
       Airport dest_port = airports.at(dest_port_id);
       double dist = getDistanceFromLatLong(source_port.getLatitude(), source_port.getLongitude(),
                                           dest_port.getLatitude(), dest_port.getLongitude());
+      // edge weight is the distance betweeen source and destination
       graph.setEdgeWeight(source_port_id, dest_port_id, dist);
+      // set edge label
+      graph.setEdgeLabel(source_port_id, dest_port_id, source_port.getName() + "->" + dest_port.getName());
     }    
   }
 
