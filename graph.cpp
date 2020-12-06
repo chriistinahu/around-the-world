@@ -386,7 +386,7 @@ void Graph::print() const
             string vertexColumn = "    \x1b[1m=>\x1b[0m " + ss.str();
             vertexColumn += " " ;
             cout << std::left << std::setw(15) << vertexColumn;
-            string edgeColumn = "\x1b[1medge label\x1b[0m = \"" + it2->second.getLabel();
+            string edgeColumn = "\x1b[1medge label\x1b[0m = " + it2->second.getLabel();
             cout << std::left << std::setw((it2->second.getLabel()).size() + 26) << edgeColumn;
             if (weighted)
                 cout << "\x1b[1mweight\x1b[0m = " << it2->second.getWeight();
