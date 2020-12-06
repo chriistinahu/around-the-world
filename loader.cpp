@@ -88,7 +88,7 @@ Graph createGraph(string routes_file, string airports_file) {
       // edge weight is the distance betweeen source and destination
       graph.setEdgeWeight(source_port_id, dest_port_id, dist);
       // set edge label
-      graph.setEdgeLabel(source_port_id, dest_port_id, source_port.getName() + "->" + dest_port.getName());
+      graph.setEdgeLabel(source_port_id, dest_port_id, source_port.getName() + "\x1b[1m=>\x1b[0m" + dest_port.getName());
     }    
   }
 

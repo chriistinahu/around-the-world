@@ -383,7 +383,7 @@ void Graph::print() const
         {
             std::stringstream ss;
             ss << it2->first; 
-            string vertexColumn = "    => " + ss.str();
+            string vertexColumn = "    \x1b[1m=>\x1b[0m " + ss.str();
             vertexColumn += " " ;
             cout << std::left << std::setw(15) << vertexColumn;
             string edgeColumn = "\x1b[1medge label\x1b[0m = \"" + it2->second.getLabel();
