@@ -15,5 +15,10 @@
   - Created test cases for loader methods and BFS algorithm on actual data files airports.txt and routes.txt
   - Updated loader methods to clean up data
   - Added comments describing what code is doing at key points in code
-
   
+## December 6 Meeting
+  - Implemented Dijkstra’s algorithm
+  - Creates test cases for testing dijkstra’s shortest path algorithm from source to any node and test cases for dijkstra’s find path algorithm
+  - Updated makefile
+  - Added documentation for steps of the algorithm
+
