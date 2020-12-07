@@ -92,6 +92,11 @@ vector<Vertex> BFS::BFS_get_path(Graph g, Vertex source, Vertex dest) {
       }
     }
 
+    // dest doesn't have a previous Vertex, a path doesn't exist
+    if (pred.count(dest) == 0) {
+      return {};
+    }
+    
     // BACKTRACKING SECTION to find path
     Vertex current = dest;
     vector<Vertex> path;

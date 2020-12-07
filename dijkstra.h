@@ -19,12 +19,8 @@ using namespace std;
 namespace traversals {
   class Dijkstra {
     public:
-      void dijkstra_main(Graph g, Vertex source);
+      map<Vertex, double> dijkstra_main(Graph g, Vertex source);
+      vector<Vertex> dijkstra_path(Graph g, Vertex source, Vertex dest);
 
-
-    private:
-      double min_distance();
-      const int INF = INT_MAX;
-      map<Vertex, bool> visted_vertices; // keep track of vertice status
   };
 }

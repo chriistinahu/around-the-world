@@ -1,19 +1,109 @@
 #include "dijkstra.h"
+#include <queue>
+#include "graph.h"
 
 using namespace traversals;
 
-void dijkstra_main(Graph g, Vertex source) {
-    // in beginning, assume distance from source vertex to all other verticies is INF
-    // TODO: initialize all distances to INF
-    vector<double> distances_vec;
-    // however, distance from source to itself is 0
-    //TODO: set location of source vertex to 0
+typedef pair<double, Vertex> vPair;
 
+map<Vertex, double> Dijkstra::dijkstra_main(Graph g, Vertex source) {
+    map<Vertex, double> distances;
+    map<Vertex, Vertex> previous;
+    priority_queue<vPair, vector<vPair>, greater<vPair>> pq;
 
-    // Push the source vertex in a min-priority queue in the form (distance , vertex), as the comparison in the min-priority queue will be according to vertices distances.
-    // Pop the vertex with the minimum distance from the priority queue (at first the popped vertex = source).
-    // Update the distances of the connected vertices to the popped vertex in case of "current vertex distance + edge weight < next vertex distance", then push the vertex with the new distance to the priority queue.
-    // If the popped vertex is visited before, just continue without using it.
-    // Apply the same algorithm again until the priority queue is empty.
+    for (Vertex v: g.getVertices()) {
+      // in beginning, assume distance from source vertex to all other verticies is INF
+      distances.insert(pair<Vertex, double>(v, INT_MAX));
+      // initialize all previous verticies to null at first
+      previous.insert(pair<Vertex, Vertex>(v, Vertex()));
+    }
+
+    // distance from source to itself is 0
+    pq.push(make_pair(0.0, source));
+    distances[source] = 0.0;
+
+    // loop while pq is not empty
+    while(!pq.empty()){
+        Vertex u = pq.top().second;  
+        pq.pop();
+
+        // get neighbors of current vertex
+        vector<Vertex> neighbors = g.getAdjacent(u);
+        // go through the neighbors
+        for (Vertex v: neighbors) {
+            // check if we have found a shorter path from source to v
+            if (distances[u] + g.getEdgeWeight(u, v) < distances[v]) {
+              // update distance from source to the unvisited neighbors
+              distances[v] = distances[u] + g.getEdgeWeight(u, v);
+              // keeps track of previous vertex from current vertex
+              previous[v] = u;
+              // add the newly calculated distances from current vector and current vector to pq
+              pq.push(make_pair(distances[v], v));
+            }
+            
+        }
+    }
+    return distances;
+}
+
+vector<Vertex> Dijkstra::dijkstra_path(Graph g, Vertex source, Vertex dest) {
+    map<Vertex, double> distances;
+    map<Vertex, Vertex> previous;
+    priority_queue<vPair, vector<vPair>, greater<vPair>> pq;
+
+    for (Vertex v: g.getVertices()) {
+      // in beginning, assume distance from source vertex to all other verticies is INF
+      distances.insert(pair<Vertex, double>(v, INT_MAX));
+      // initialize all previous verticies to null at first
+      previous.insert(pair<Vertex, Vertex>(v, Vertex()));
+    }
+
+    // distance from source to itself is 0
+    pq.push(make_pair(0.0, source));
+    distances[source] = 0.0;
+
+    Graph T(true, true);
+        
+    // loop while pq is not empty
+    while(!pq.empty()){
+        Vertex u = pq.top().second;  
+        pq.pop();
+
+        // get neighbors of current vertex
+        vector<Vertex> neighbors = g.getAdjacent(u);
+        // go through the neighbors
+        for (Vertex v: neighbors) {
+            // check if we have found a shorter path from source to v
+            if (distances[u] + g.getEdgeWeight(u, v) < distances[v]) {
+              // update distance from source to the unvisited neighbors
+              distances[v] = distances[u] + g.getEdgeWeight(u, v);
+              // keeps track of previous vertex from current vertex
+              previous[v] = u;
+              // add the newly calculated distances from current vector and current vector to pq
+              pq.push(make_pair(distances[v], v));
+            }
+            
+        }
+    }
+
+    // if dest doesn't have a previous Vertex, a path doesn't exist
+    if (previous.count(dest) == 0) {
+      return {};
+    }
+    
+    Vertex current = dest;
+    vector<Vertex> path;
+    path.push_back(current);
+    // as long as current vertex is not source vertex, keep adding to path (backwards)
+    while (previous.at(current) != source) {
+      std::cout << current << " " << previous.at(current) << std::endl;
+      path.push_back(previous.at(current));
+      current = previous.at(current);
+    }
+    // the while loop ends before reaching source vertex, so need to push back source at end
+    path.push_back(source);
+    // get the actual path by reversing!!
+    std::reverse(path.begin(), path.end());
+    return path;
 
 }

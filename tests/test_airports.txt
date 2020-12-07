@@ -14,3 +14,4 @@
 2715,"Alfonso Bonilla Aragon International Airport","Cali","Colombia","CLO","SKCL",3.54322,-76.3816,3162,-5,"U","America/Bogota","airport","OurAirports"
 6045,"San Cristóbal Airport","San Cristóbal","Ecuador","SCY","SEST",-0.910206,-89.617401,62,-6,"U","Pacific/Galapagos","airport","OurAirports"
 2670,"Francisco De Orellana Airport","Coca","Ecuador","OCC","SECO",-0.4628860056400299,-76.98680114746094,834,-5,"U","America/Guayaquil","airport","OurAirports"
+2965,"Sochi International Airport","Sochi","Russia","AER","URSS",43.449902,39.9566,89,3,"N","Europe/Moscow","airport","OurAirports"
