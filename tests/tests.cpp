@@ -3,6 +3,7 @@
 #include "../bfs.h"
 #include "../graph.h"
 #include "../dijkstra.h"
+#include "../landmark.h"
 
 using namespace traversals;
 
@@ -149,5 +150,20 @@ TEST_CASE("Dijsktra to find shortest path",  "[dijkstra]") {
     vector<Vertex> path = d.dijkstra_path(g, "3484", "3992");
     vector<Vertex> corr_path{"3484", "3469", "3992"};
 
+    REQUIRE(path == corr_path);
+}
+
+TEST_CASE("Landmark through subgraph",  "[landmark]") {
+    // Expected Path: IQT -> PCL -> LIM -> AQP -> CUZ
+    // 2801, 2781, 2789, 2802, 2812
+    
+    // IQT -> PCL -> LIM -> AQP -> JUL -> CUZ is a possible path but is longer so path bypasses JUL
+    
+    vector<Vertex> corr_path{"2801", "2781", "2789", "2802", "2792", "2812"};
+    
+    Landmark l;
+    Graph g = createGraph("tests/test_route.txt", "tests/test_airports.txt");
+    vector<Vertex> path = l.landmark_path(g, "2801", "2812", "2792");
+    
     REQUIRE(path == corr_path);
 }
