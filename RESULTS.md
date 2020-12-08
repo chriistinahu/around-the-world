@@ -1,3 +1,5 @@
+**Project Outcomes**
+
 For our final project, we implemented BFS, Dijkstra, and Landmark Path algorithms. We were able to finish all of the traversals and wrote tests to check each functionality. We chose to use the Open Flights dataset to use the algorithms on. In particular, we used the Routes.txt and Airports.txt datasets. 
 
 Routes.txt only included data on the source and destination airports of each route, while Airports.txt included specific details on each airport such as its main city served, latitude, and longitude. Since the airport ID attribute is the common feature between the two datasets, we used it to match and locate information for each airport in the file. It was very important to ensure that all airports in Routes.txt had a corresponding entry in Airports.txt in order to retrieve its latitude and longitude coordinates. We removed any airports, which were very few in number, that did not satisfy that requirement. 
