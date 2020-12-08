@@ -1,64 +1,31 @@
-EXENAME = main
+EXE = main
+TEST = test 
+
+EXE_OBJ = main.o 
 OBJS = main.o loader.o airport.o route.o graph.o bfs.o dijkstra.o landmark.o
 
-CXX = clang++
-CXXFLAGS = $(CS225) -std=c++1y -stdlib=libc++ -c -g -O0 -Wall -Wextra -pedantic
-LD = clang++
-LDFLAGS = -std=c++1y -stdlib=libc++ -lc++abi -lm
+OBJS_DIR = .objs 
 
-# Custom Clang version enforcement Makefile rule:
-ccred=$(shell echo -e "\033[0;31m")
-ccyellow=$(shell echo -e "\033[0;33m")
-ccend=$(shell echo -e "\033[0m")
+# specific traversal executables
+EXE_BFS = run_bfs
+OBJS_BFS = $(OBJS_DIR)/run_bfs.o $(OBJS_DIR)/bfs.o $(OBJS_DIR)/graph.o $(OBJS_DIR)/loader.o $(OBJS_DIR)/route.o $(OBJS_DIR)/airport.o
 
-IS_EWS=$(shell hostname | grep "ews.illinois.edu")
-IS_CORRECT_CLANG=$(shell clang -v 2>&1 | grep "version 6")
-ifneq ($(strip $(IS_EWS)),)
-ifeq ($(strip $(IS_CORRECT_CLANG)),)
-CLANG_VERSION_MSG = $(error $(ccred) On EWS, please run 'module load llvm/6.0.1' first when running CS225 assignments. $(ccend))
-endif
-else
-CLANG_VERSION_MSG = $(warning $(ccyellow) Looks like you are not on EWS. Be sure to test on EWS before the deadline. $(ccend))
-endif
 
-.PHONY: all test clean output_msg
+EXE_DIJ = run_dijkstra
+OBJS_DIJ = $(OBJS_DIR)/run_dijkstra.o $(OBJS_DIR)/dijkstra.o $(OBJS_DIR)/graph.o $(OBJS_DIR)/loader.o $(OBJS_DIR)/route.o $(OBJS_DIR)/airport.o
 
-all : $(EXENAME)
+EXE_LANDMARK = run_landmark
+OBJS_LANDMARK = $(OBJS_DIR)/run_landmark.o $(OBJS_DIR)/landmark.o $(OBJS_DIR)/graph.o $(OBJS_DIR)/loader.o $(OBJS_DIR)/route.o $(OBJS_DIR)/airport.o
 
-output_msg: ; $(CLANG_VERSION_MSG)
+CLEAN_RM = $(EXE_BFS) $(EXE_DIJ) $(EXE_LANDMARK)
 
-$(EXENAME): output_msg $(OBJS)
-	$(LD) $(OBJS) $(LDFLAGS) -o $(EXENAME)
+include cs225/make/cs225.mk 
 
-main.o: main.cpp loader.h route.h airport.h graph.h bfs.h dijkstra.h landmark.h
-	$(CXX) $(CXXFLAGS) main.cpp loader.h
+$(EXE_BFS): $(OBJS_BFS)
+	$(LD) $^ $(LDFLAGS) -o $@
 
-loader.o: loader.cpp loader.h
-	$(CXX) $(CXXFLAGS) loader.cpp
+$(EXE_DIJ): $(OBJS_DIJ)
+	$(LD) $^ $(LDFLAGS) -o $@
 
-airport.o: airport.cpp airport.h
-	$(CXX) $(CXXFLAGS) airport.cpp
-
-route.o: route.h route.cpp 
-	$(CXX) $(CXXFLAGS) route.cpp
-
-graph.o: graph.h graph.cpp edge.h
-	$(CXX) $(CXXFLAGS) graph.cpp
-
-bfs.o: bfs.h bfs.cpp graph.h
-	$(CXX) $(CXXFLAGS) bfs.cpp
-
-dijkstra.o: dijkstra.h dijkstra.cpp graph.h 
-	$(CXX) $(CXXFLAGS) dijkstra.cpp
-	
-landmark.o: landmark.h landmark.cpp graph.h dijkstra.h
-	$(CXX) $(CXXFLAGS) landmark.cpp
-
-test: output_msg catchmain.o tests/tests.cpp airport.o route.o graph.o loader.o bfs.o dijkstra.o landmark.o
-	$(LD) catchmain.o tests/tests.cpp airport.o route.o graph.o loader.o bfs.o dijkstra.o landmark.o $(LDFLAGS) -o test
-
-catchmain.o: catch/catchmain.cpp catch/catch.hpp
-	$(CXX) $(CXXFLAGS) cs225/catch/catchmain.cpp
-
-clean:
-	-rm -f *.o $(EXENAME) test
+$(EXE_LANDMARK): $(OBJS_LANDMARK)
+	$(LD) $^ $(LDFLAGS) -o $@

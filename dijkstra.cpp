@@ -10,6 +10,7 @@ map<Vertex, double> Dijkstra::dijkstra_main(Graph g, Vertex source) {
     map<Vertex, double> distances;
     map<Vertex, Vertex> previous;
     priority_queue<vPair, vector<vPair>, greater<vPair>> pq;
+    // source_ = source;
 
     for (Vertex v: g.getVertices()) {
       // in beginning, assume distance from source vertex to all other verticies is INF
@@ -43,6 +44,8 @@ map<Vertex, double> Dijkstra::dijkstra_main(Graph g, Vertex source) {
             
         }
     }
+
+    // all_path_distances_ = distances;
     return distances;
 }
 
@@ -107,3 +110,10 @@ vector<Vertex> Dijkstra::dijkstra_path(Graph g, Vertex source, Vertex dest) {
     return path;
 
 }
+
+// void Dijkstra::printToFile(string file_name) {
+//   ofstream myfile;
+//   myfile.open (file_name);
+//   myfile << "From source airport" << ;
+//   myfile.close();
+// }

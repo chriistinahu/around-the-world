@@ -14,6 +14,7 @@ class Airport {
 
   public:
     Airport(string airport_id, string name, string city, double latitude, double longitude);
+    string getID();
     string getName();
     string getCity();
     double getLatitude();

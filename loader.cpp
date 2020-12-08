@@ -16,8 +16,10 @@ map<string, Airport> loadDataFromAirportFile(const string& filename) {
         field += line[i];
       }
     }
-    Airport airport(info.at(0), info.at(1), info.at(3), stod(info.at(6)), stod(info.at(7)));
-    airports.insert(pair<string, Airport>(info.at(0), airport));
+    string airport_id = info.at(4);
+    airport_id.erase(remove(airport_id.begin(), airport_id.end(), '"'), airport_id.end());
+    Airport airport(airport_id, info.at(1), info.at(3), stod(info.at(6)), stod(info.at(7)));
+    airports.insert(pair<string, Airport>(airport_id, airport));
   }
   return airports;
 }
@@ -34,11 +36,10 @@ vector<Route> loadDataFromRouteFile(const string& filename) {
     while (getline(ss, field, ',')) {
       info.push_back(field);
     }
-    Route route(info.at(3), info.at(5));
+    Route route(info.at(2), info.at(4));
     routes.push_back(route);
   }
 	return routes;
-
 }
 
 double getDistanceFromLatLong(double lat_1, double long_1, double lat_2, double long_2) {
@@ -62,11 +63,10 @@ Graph createGraph(string routes_file, string airports_file) {
   map<string, Airport> airports = loadDataFromAirportFile(airports_file);
 
   Graph graph(true, true);
-
+  graph.airportMap = airports;
   for (Route route : routes) {
     string source_port_id = route.getSrcAirport();
     string dest_port_id = route.getDestAirport();
-
     // check if source and destination exist in airports data
     if (airports.find(dest_port_id) != airports.end() &&
       airports.find(source_port_id) != airports.end()) {

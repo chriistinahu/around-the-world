@@ -21,6 +21,9 @@ namespace traversals {
     public:
       map<Vertex, double> dijkstra_main(Graph g, Vertex source);
       vector<Vertex> dijkstra_path(Graph g, Vertex source, Vertex dest);
-
+      // void printToFile(string file_name);
+    private:
+      // map<Vertex, double> all_path_distances_;
+      // Vertex source_;
   };
 }

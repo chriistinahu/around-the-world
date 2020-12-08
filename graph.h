@@ -33,22 +33,13 @@
 #include <set>
 #include <sstream>
 #include <vector>
+#include <map>
 
 #include "edge.h"
 #include "random.h"
+#include "airport.h"
 
-using std::cerr;
-using std::cout;
-using std::endl;
-using std::vector;
-using std::set;
-using std::string;
-using std::to_string;
-using std::vector;
-using std::pair;
-using std::make_pair;
-using std::unordered_map;
-
+using namespace std;
 
 /**
  * Represents a graph; used by the GraphTools class.
@@ -57,6 +48,7 @@ using std::unordered_map;
 class Graph
 {
 public:
+    map<string, Airport> airportMap;  
     /**
      * Constructor to create an empty graph.
      * @param weighted - specifies whether the graph is a weighted graph or
@@ -242,7 +234,6 @@ private:
     Random random;
     int picNum;
     string picName;
-
 
     /**
      * Returns whether a given vertex exists in the graph.

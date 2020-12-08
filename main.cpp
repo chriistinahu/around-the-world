@@ -3,23 +3,33 @@
 #include "loader.h"
 #include "route.h"
 #include "airport.h"
-
+#include "bfs.h"
 
 using std::cout;
 using std::endl;
 
-int main() {
-  double lat_1 = 41.8781;
-  double long_1 = 87.6298;
+const string USAGE = 
+"USAGE: ./main [AIRPORTS_FILE] [ROUTES_FILE]\n";
 
-  // Boston coords
+int main(int argc, char* argv[]) {
+  // run and outputs all traversals
+  // argv[0] - airports.txt style filename
+  // argv[1] - routes.txt style filename
+  
+  if (argc < 3) {
+    cerr << USAGE << endl;
+    return -1;
+  }
 
-  // beijing 39.9042° N, 116.4074° E
-  // 10,597
-  double lat_2 = 39.9042;
-  double long_2 = -116.4074;
+  vector<string> args;
+  for (int i = 1; i < argc; i++) {
+    args.push_back(argv[i]);
+    cout << argv[i] << endl;
+  }
 
-  double distanceBtwn = getDistanceFromLatLong(lat_1, long_1, lat_2, long_2);
-  cout << distanceBtwn << endl;
+  // BFS bfs;
+  // Graph g = createGraph(args[0], args[1]);
+
+
   return 0;
 }

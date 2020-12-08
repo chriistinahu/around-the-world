@@ -50,17 +50,18 @@ TEST_CASE("Subgraph on Peru: path skips airport", "[bfs]") {
     
     // IQT -> PCL -> LIM -> AQP -> JUL -> CUZ is a possible path but is longer so path bypasses JUL
     
-    vector<Vertex> corr_path{"2801", "2781", "2789", "2802", "2812"};
+    vector<Vertex> corr_path{"IQT", "PCL", "LIM", "AQP", "CUZ"};
     
     BFS bfs;
     Graph g = createGraph("tests/test_route.txt", "tests/test_airports.txt");
+    cout << "57" << endl;
     g.print();
-    vector<Vertex> path = bfs.BFS_get_path(g, "2801", "2812");
-    
+    vector<Vertex> path = bfs.BFS_get_path(g, "IQT", "CUZ");
+    cout << "60" << endl;
     REQUIRE(path == corr_path);
 }
 
-
+/*
 TEST_CASE("Larger Graph Using ALL Data #1", "[bfs]") {
     // SCY to ORD
     // Expected Path: SCY -> GYE -> JFK -> ORD
@@ -167,3 +168,4 @@ TEST_CASE("Landmark through subgraph",  "[landmark]") {
     
     REQUIRE(path == corr_path);
 }
+*/

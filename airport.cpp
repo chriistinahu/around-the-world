@@ -8,6 +8,10 @@ Airport::Airport(string airport_id, string name, string city, double latitude, d
   longitude_ = longitude;
 }
 
+string Airport::getID() {
+  return airport_id_;
+}
+
 string Airport::getName() {
   return name_;
 }
