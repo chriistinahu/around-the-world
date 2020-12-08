@@ -1,6 +1,6 @@
-**Around the World 🌎**   
+# Around the World 🌎 
 
-Contributors: Amy Qian, Cindia Hua, Christina Hu
+*Contributors: Amy Qian, Cindia Hua, Christina Hu*
 
 **Make sure to be clear in ReadMe on what the expected input data should look like**
 - Be specific about each of the algorithms
