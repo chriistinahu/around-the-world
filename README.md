@@ -12,6 +12,7 @@ Contributors: Amy Qian, Cindia Hua, Christina Hu
 **Executable Instructions**
 
 - talk about input format here
+- add gif showing example
 
 
 **Tests**
