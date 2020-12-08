@@ -22,3 +22,7 @@
   - Updated makefile
   - Added documentation for steps of the algorithm
 
+## December 7 Meeting
+  - Implemented our last algorithm, Landmark path
+  - Started creating executables which users can customize their arguments using the command line
+  - Wrote first draft of report, presentation script, and readme
