@@ -40,9 +40,12 @@ In order to run `main`, which runs BFS, Dijkstra, and Landmark simultaneously, p
 
 `./main <AIRPORTS_FILE> <ROUTES_FILE> <SOURCE> <DEST> <LANDMARK>`
 
-In order to run each of the traversals individually, please follow the following order of arguments:
+In order to run each of the traversals individually, please run `make run_traversal` and follow the following order of arguments:
+
+`make run_traversal`
 
 `./run_traversal <AIRPORTS_FILE> <ROUTES_FILE> <SOURCE_ID> <DEST_ID>` 
+
 
 For Landmark, there will be an extra `<LANDMARK_ID>` argument at the end. 
 
@@ -54,16 +57,21 @@ For Landmark, there will be an extra `<LANDMARK_ID>` argument at the end.
 - `DEST_ID`: Must be a string, the ICAO airport code of the destination airport. (ex. ORD, LAX, JFK, etc)
 - `LANDMARK_ID`: Must be a string, the ICAO airport code of the landmark airport to pass through. (ex. ORD, LAX, JFK, etc)
 
-
 **BFS**
+
+`make run_bfs`
 
 `./run_bfs <AIRPORTS_FILE> <ROUTES_FILE> <SOURCE_ID> <DEST_ID>`
 
 **Dijkstra**
 
+`make run_dijkstra`
+
 `./run_dijkstra <AIRPORTS_FILE> <ROUTES_FILE> <SOURCE_ID> <DEST_ID>`
 
 **Landmark**
+
+`make run_landmark`
 
 `./run_landmark <AIRPORTS_FILE> <ROUTES_FILE> <SOURCE_ID> <DEST_ID> <LANDMARK_ID>`
 
