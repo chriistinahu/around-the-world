@@ -53,9 +53,9 @@ For Landmark, there will be an extra `<LANDMARK_ID>` argument at the end.
 
 - `AIRPORTS_FILE`: Must be in CSV file format. Please refer to the [File Format](#file-format) section to see what the file should look like. Enter the **file path** of the file.
 - `ROUTES_FILE`: Must be in CSV file format. Please refer to the [File Format](#file-format) section to see what the file should look like. Enter the **file path** of the file.
-- `SOURCE_ID`: Must be a string, the ICAO airport code of the source airport. (ex. ORD, LAX, JFK, etc)
-- `DEST_ID`: Must be a string, the ICAO airport code of the destination airport. (ex. ORD, LAX, JFK, etc)
-- `LANDMARK_ID`: Must be a string, the ICAO airport code of the landmark airport to pass through. (ex. ORD, LAX, JFK, etc)
+- `SOURCE_ID`: Must be a string, the 3-letter IATA airport code of the source airport. (ex. ORD, LAX, JFK, etc)
+- `DEST_ID`: Must be a string, the 3-letter IATA airport code of the destination airport. (ex. ORD, LAX, JFK, etc)
+- `LANDMARK_ID`: Must be a string, the 3-letter IATA airport code of the landmark airport to pass through. (ex. ORD, LAX, JFK, etc)
 
 **BFS**
 
