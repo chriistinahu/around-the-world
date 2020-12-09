@@ -8,37 +8,42 @@
 - Make sure that functions can be ran with some sort of customized input.
 - Code should work with data files that look like as it should be specified in the readme. (ex. If readme says file should look like “name,age,school” then the test data file that they use will be in that format)**
 
+## Files
+
+
 
 ## Executable Instructions
 
 In order to run each of the traversals, please follow the following order of input:
 
-`./run_traversal [AIRPORTS_FILE] [ROUTES_FILE] [SOURCE_ID] [DEST_ID]` 
+`./run_traversal <AIRPORTS_FILE]> <ROUTES_FILE> <SOURCE_ID> <DEST_ID>` 
 
-For Landmark, there will be an extra `[LANDMARK_ID]` input at the end. 
+For Landmark, there will be an extra `<LANDMARK_ID>` argument at the end. 
 
-- `[AIRPORTS_FILE]`: Must be in CSV file format. Please refer to the **Files** section to see what the file should look like
-- `[ROUTES_FILE]`: Must be in CSV file format. Please refer to the **Files** section to see what the file should look like
-- `[SOURCE_ID]`: Must be a string, the ICAO airport code of the source airport. (ex. ORD, LAX, JFK, etc)
-- `[DEST_ID]`: Must be a string, the ICAO airport code of the destination airport. (ex. ORD, LAX, JFK, etc)
-- `[LANDMARK_ID]`: Must be a string, the ICAO airport code of the landmark airport to pass through. (ex. ORD, LAX, JFK, etc)
+### Argument Definitions
 
-- add gif showing example
+- `AIRPORTS_FILE`: Must be in CSV file format. Please refer to the [Files](#files) section to see what the file should look like
+- `ROUTES_FILE`: Must be in CSV file format. Please refer to the [Files](#files) section to see what the file should look like
+- `SOURCE_ID`: Must be a string, the ICAO airport code of the source airport. (ex. ORD, LAX, JFK, etc)
+- `DEST_ID`: Must be a string, the ICAO airport code of the destination airport. (ex. ORD, LAX, JFK, etc)
+- `LANDMARK_ID`: Must be a string, the ICAO airport code of the landmark airport to pass through. (ex. ORD, LAX, JFK, etc)
 
 
 **BFS**
 
-`./run_bfs [AIRPORTS_FILE] [ROUTES_FILE] [SOURCE_ID] [DEST_ID]`
+`./run_bfs <AIRPORTS_FILE]> <ROUTES_FILE> <SOURCE_ID> <DEST_ID>`
 
 **Dijkstra**
 
-`./run_dijkstra [AIRPORTS_FILE] [ROUTES_FILE] [SOURCE_ID] [DEST_ID]`
+`./run_dijkstra <AIRPORTS_FILE]> <ROUTES_FILE> <SOURCE_ID> <DEST_ID>`
 
 **Landmark**
 
-`./run_landmark [AIRPORTS_FILE] [ROUTES_FILE] [SOURCE_ID] [DEST_ID] [LANDMARK_ID]`
+`./run_landmark <AIRPORTS_FILE]> <ROUTES_FILE> <SOURCE_ID> <DEST_ID> <LANDMARK_ID>`
 
-# Output
+- add gif showing example
+
+## Output
 
 After running the executable for a traversal, you should see the resulting path print out in the terminal. It will be in the format of: `source_airport -> airport_2 -> airport_3 -> dest_airport`
 
@@ -54,7 +59,7 @@ Below is a sample output:
 
 [INCLUDE IMAGE HERE]
 
-# Tests
+## Tests
 
 To run tests for this project, run in the terminal:
 
