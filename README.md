@@ -10,6 +10,28 @@
 
 ## File Format
 
+For this project to compile, you will need two CSV text files: one containing airport data and another containing route data.
+
+### Aiports Text File
+
+This file should contain the following attributes:
+
+<img src="https://github-dev.cs.illinois.edu/cs225-fa20/ch35-amyyq2-xinranh2/blob/master/readme_media/airport_1.png" width="600">
+
+Here is a sample of what a few rows of data could look like:
+
+<img src="https://github-dev.cs.illinois.edu/cs225-fa20/ch35-amyyq2-xinranh2/blob/master/readme_media/airport_2.png" width="1000">
+
+
+### Routes Text File
+
+This file should contain the following attributes:
+
+<img src="https://github-dev.cs.illinois.edu/cs225-fa20/ch35-amyyq2-xinranh2/blob/master/readme_media/route_1.png" width="850">
+
+Here is a sample of what a few rows of data could look like:
+
+<img src="https://github-dev.cs.illinois.edu/cs225-fa20/ch35-amyyq2-xinranh2/blob/master/readme_media/route_2.png" width="200">
 
 
 ## Executable Instructions
@@ -22,8 +44,8 @@ For Landmark, there will be an extra `<LANDMARK_ID>` argument at the end.
 
 ### Argument Definitions
 
-- `AIRPORTS_FILE`: Must be in CSV file format. Please refer to the [File Format](#file-format) section to see what the file should look like
-- `ROUTES_FILE`: Must be in CSV file format. Please refer to the [File Format](#file-format) section to see what the file should look like
+- `AIRPORTS_FILE`: Must be in CSV file format. Please refer to the [File Format](#file-format) section to see what the file should look like. Enter the **file path** of the file.
+- `ROUTES_FILE`: Must be in CSV file format. Please refer to the [File Format](#file-format) section to see what the file should look like. Enter the **file path** of the file.
 - `SOURCE_ID`: Must be a string, the ICAO airport code of the source airport. (ex. ORD, LAX, JFK, etc)
 - `DEST_ID`: Must be a string, the ICAO airport code of the destination airport. (ex. ORD, LAX, JFK, etc)
 - `LANDMARK_ID`: Must be a string, the ICAO airport code of the landmark airport to pass through. (ex. ORD, LAX, JFK, etc)
@@ -49,7 +71,7 @@ After running the executable for a traversal, you should see the resulting path 
 
 Below is a sample output:
 
-<img src="https://github-dev.cs.illinois.edu/cs225-fa20/ch35-amyyq2-xinranh2/blob/master/readme_media/dijkstra_2.png" width="800">
+<img src="https://github-dev.cs.illinois.edu/cs225-fa20/ch35-amyyq2-xinranh2/blob/master/readme_media/dijkstra_2.png" width="850">
 
 
 For Dijkstra, there is an additional output being printed. Since Dijkstra is also able to find the shortest path from a source to every other airport, you should see something in the format of: 
