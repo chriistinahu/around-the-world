@@ -49,7 +49,7 @@ After running the executable for a traversal, you should see the resulting path 
 
 Below is a sample output:
 
-<img src="https://github-dev.cs.illinois.edu/cs225-fa20/ch35-amyyq2-xinranh2/blob/master/readme_media/dijkstra_1.png" width="800">
+<img src="https://github-dev.cs.illinois.edu/cs225-fa20/ch35-amyyq2-xinranh2/blob/master/readme_media/dijkstra_2.png" width="800">
 
 
 For Dijkstra, there is an additional output being printed. Since Dijkstra is also able to find the shortest path from a source to every other airport, you should see something in the format of: 
@@ -62,7 +62,7 @@ Where `dest_i` is the destination airport and `distance` is the shortest distanc
 
 Below is a sample output:
 
-<img src="https://github-dev.cs.illinois.edu/cs225-fa20/ch35-amyyq2-xinranh2/blob/master/readme_media/dijkstra_2.png" width="500">
+<img src="https://github-dev.cs.illinois.edu/cs225-fa20/ch35-amyyq2-xinranh2/blob/master/readme_media/dijkstra_1.png" width="500">
 
 
 ## Tests
