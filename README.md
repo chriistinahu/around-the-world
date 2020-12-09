@@ -2,6 +2,8 @@
 
 *Contributors: Amy Qian, Cindia Hua, Christina Hu*
 
+<img src="https://github-dev.cs.illinois.edu/cs225-fa20/ch35-amyyq2-xinranh2/blob/master/readme_media/cute_plane.jpg" width="500">
+
 Have you ever wondered what the shortest path between O'Hare to John Wayne Aiport is? What about the shortest distance from O'Hare to all of the other aiports in the world? Or the shortest distance from O'Hare to Haneda Airport but you also *really, really* want to pass through John F. Kennedy International Aiport at the same time? Well, we've got you covered! Using the hottest travesals known as BFS, Dijkstra, and Landmark Path, you now have a way to find out all of this information and more to your heart's content! 
 
 ## File Format
