@@ -2,11 +2,7 @@
 
 *Contributors: Amy Qian, Cindia Hua, Christina Hu*
 
-**Make sure to be clear in ReadMe on what the expected input data should look like**
-- Be specific about each of the algorithms
-- Have documentation of functions and be clear what it expects (for input) and what the output would look like (is it returned? Is it outputted somewhere?)
-- Make sure that functions can be ran with some sort of customized input.
-- Code should work with data files that look like as it should be specified in the readme. (ex. If readme says file should look like “name,age,school” then the test data file that they use will be in that format)**
+Have you ever wondered what the shortest path between O'Hare to John Wayne Aiport is? What about the shortest distance from O'Hare to all of the other aiports in the world? Or the shortest distance from O'Hare to Haneda Airport but you also *really, really* want to pass through John F. Kennedy International Aiport at the same time? Well, we've got you covered! Using the hottest travesals known as BFS, Dijkstra, and Landmark Path, you now have a way to find out all of this information and more to your heart's content! 
 
 ## File Format
 
@@ -36,9 +32,15 @@ Here is a sample of what a few rows of data could look like:
 
 ## Executable Instructions
 
-In order to run each of the traversals, please follow the following order of input:
+In order to run `main`, which runs BFS, Dijkstra, and Landmark simultaneously, please run `make` and then follow the following order of arguments:
 
-`./run_traversal <AIRPORTS_FILE]> <ROUTES_FILE> <SOURCE_ID> <DEST_ID>` 
+`make`
+
+`./main <AIRPORTS_FILE> <ROUTES_FILE> <SOURCE> <DEST> <LANDMARK>`
+
+In order to run each of the traversals individually, please follow the following order of arguments:
+
+`./run_traversal <AIRPORTS_FILE> <ROUTES_FILE> <SOURCE_ID> <DEST_ID>` 
 
 For Landmark, there will be an extra `<LANDMARK_ID>` argument at the end. 
 
@@ -53,15 +55,15 @@ For Landmark, there will be an extra `<LANDMARK_ID>` argument at the end.
 
 **BFS**
 
-`./run_bfs <AIRPORTS_FILE]> <ROUTES_FILE> <SOURCE_ID> <DEST_ID>`
+`./run_bfs <AIRPORTS_FILE> <ROUTES_FILE> <SOURCE_ID> <DEST_ID>`
 
 **Dijkstra**
 
-`./run_dijkstra <AIRPORTS_FILE]> <ROUTES_FILE> <SOURCE_ID> <DEST_ID>`
+`./run_dijkstra <AIRPORTS_FILE> <ROUTES_FILE> <SOURCE_ID> <DEST_ID>`
 
 **Landmark**
 
-`./run_landmark <AIRPORTS_FILE]> <ROUTES_FILE> <SOURCE_ID> <DEST_ID> <LANDMARK_ID>`
+`./run_landmark <AIRPORTS_FILE> <ROUTES_FILE> <SOURCE_ID> <DEST_ID> <LANDMARK_ID>`
 
 - add gif showing example
 
