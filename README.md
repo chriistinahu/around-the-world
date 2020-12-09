@@ -9,15 +9,54 @@
 - Code should work with data files that look like as it should be specified in the readme. (ex. If readme says file should look like “name,age,school” then the test data file that they use will be in that format)**
 
 
-**Executable Instructions**
+## Executable Instructions
 
-- talk about input format here
+In order to run each of the traversals, please follow the following order of input:
+
+`./run_traversal [AIRPORTS_FILE] [ROUTES_FILE] [SOURCE_ID] [DEST_ID]` 
+
+For Landmark, there will be an extra `[LANDMARK_ID]` input at the end. 
+
+- `[AIRPORTS_FILE]`: Must be in CSV file format. Please refer to the **Files** section to see what the file should look like
+- `[ROUTES_FILE]`: Must be in CSV file format. Please refer to the **Files** section to see what the file should look like
+- `[SOURCE_ID]`: Must be a string, the ICAO airport code of the source airport. (ex. ORD, LAX, JFK, etc)
+- `[DEST_ID]`: Must be a string, the ICAO airport code of the destination airport. (ex. ORD, LAX, JFK, etc)
+- `[LANDMARK_ID]`: Must be a string, the ICAO airport code of the landmark airport to pass through. (ex. ORD, LAX, JFK, etc)
+
 - add gif showing example
 
 
-**Tests**
+**BFS**
 
-To run tests for this project, make sure to do:
+`./run_bfs [AIRPORTS_FILE] [ROUTES_FILE] [SOURCE_ID] [DEST_ID]`
+
+**Dijkstra**
+
+`./run_dijkstra [AIRPORTS_FILE] [ROUTES_FILE] [SOURCE_ID] [DEST_ID]`
+
+**Landmark**
+
+`./run_landmark [AIRPORTS_FILE] [ROUTES_FILE] [SOURCE_ID] [DEST_ID] [LANDMARK_ID]`
+
+# Output
+
+After running the executable for a traversal, you should see the resulting path print out in the terminal. It will be in the format of: `source_airport -> airport_2 -> airport_3 -> dest_airport`
+
+For Dijkstra, there is an additional output being printed. Since Dijkstra is also able to find the shortest path from a source to every other airport, you should see something in the format of: 
+
+`dest_1 | distance`
+
+`dest_2 | distance`
+
+Where `dest_i` is the destination airport and `distance` is the shortest distance from the source airport to the destination airport. 
+
+Below is a sample output:
+
+[INCLUDE IMAGE HERE]
+
+# Tests
+
+To run tests for this project, run in the terminal:
 
 `make test`
 
