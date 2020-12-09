@@ -111,6 +111,6 @@ To run tests for the specific traversals, run with:
 
 `./test [bfs]` or `./test [dijkstra]` or `./test [landmark]`
 
-# Video Presentation
+## Video Presentation
 
 Our final presentation video: [include link here]
