@@ -85,11 +85,11 @@ Below is a sample output:
 
 <img src="https://github-dev.cs.illinois.edu/cs225-fa20/ch35-amyyq2-xinranh2/blob/master/readme_media/dijkstra_2.png" width="850">
 
-For BFS, there is an additional output being printed. In the terminal, you will see the order in which the graph is traversed from the source.
+For BFS, there is an additional output being printed. In the terminal, you will see the order in which the graph is traversed from the source (in-order traversal).
 
 Below is a sample output:
 
-[INCLUDE IMAGE HERE]
+<img src="https://github-dev.cs.illinois.edu/cs225-fa20/ch35-amyyq2-xinranh2/blob/master/readme_media/bfs_output.png" width="850">
 
 For Dijkstra, there is an additional output being printed. Since Dijkstra is also able to find the shortest path from a source to every other airport, you should see something in the format of: 
 
