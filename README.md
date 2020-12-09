@@ -75,7 +75,7 @@ For Landmark, there will be an extra `<LANDMARK_ID>` argument at the end.
 
 `./run_landmark <AIRPORTS_FILE> <ROUTES_FILE> <SOURCE_ID> <DEST_ID> <LANDMARK_ID>`
 
-- add gif showing example
+<img src="https://github-dev.cs.illinois.edu/cs225-fa20/ch35-amyyq2-xinranh2/blob/master/readme_media/sample_input.gif" width="850">
 
 ## Output
 
