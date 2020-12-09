@@ -3,11 +3,6 @@
 /// Create map of airport id to airport object from csv file of airport data
 map<string, Airport> loadDataFromAirportFile(const string& filename) {
   ifstream text(filename);
-  if (!text) {
-    cerr << "Airport file does not exist" << endl;
-    return {};
-  }
-
   map<string, Airport> airports;
   string line;
   while(getline(text, line)) {
@@ -39,10 +34,6 @@ map<string, Airport> loadDataFromAirportFile(const string& filename) {
 /// Create vector of Route objects from csv file of route data
 vector<Route> loadDataFromRouteFile(const string& filename) {
   ifstream text(filename);
-  if (!text) {
-    cerr << "Route file does not exist" << endl;
-    return {};
-  }
   vector<Route> routes;
   string line;
   while(getline(text, line)) {

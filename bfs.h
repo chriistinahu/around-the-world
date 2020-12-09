@@ -25,14 +25,13 @@ namespace traversals {
    */
   class BFS {
     public:
+      // traverses whole graph starting from one vertex
+      vector<Vertex> BFS_whole(Graph g, Vertex source);
+      
       /**
        * Inputs: the Graph to traverse on, the source airport's IATA code, and the destination airport's IATA code
        * Output: a vector of Vertices that represents the shortest path from the source to the destination airport
        */
       vector<Vertex> BFS_get_path(Graph g, Vertex source, Vertex dest);
-
-    private:
-        // Keeps track of which vertices have been explored
-        map<Vertex, bool> explored_vertices;
   };
 }

@@ -1,7 +1,56 @@
 #include "bfs.h"
 
 using namespace traversals;
+
+vector<Vertex> BFS::BFS_whole(Graph g, Vertex source) {
+    if (!g.vertexExists(source)) {
+      cerr << "Source airport does not exist" << endl;
+      return {};
+    } 
+
+    map<Vertex, bool> explored_vertices;
+    vector<Vertex> path;
+
+    for (Vertex v : g.getVertices()) {
+        // initially, all vertices are set as UNEXPLORED
+        explored_vertices.insert(std::pair<Vertex, bool>(v, false));
+    }
+    
+    for (Edge e: g.getEdges()) {
+        // initially, all edges are set as UNEXPLORED
+        g.setEdgeLabel(e.source, e.dest, "UNEXPLORED");
+    }
+
+    queue<Vertex> q;
+    // set current vertex status as VISITED
+    explored_vertices.at(source) = true;
+    q.push(source);
+
+    while (!q.empty()) {
+      Vertex current_vertex = q.front();
+      q.pop();
+      path.push_back(current_vertex);
+      // loop through all neighboring vertices
+      for (Vertex neighbor: g.getAdjacent(current_vertex)) {
+        // if current vertex is UNEXPLORED
+        if (!explored_vertices.at(neighbor)) {
+          // set current edge label status as DISCOVERY
+          g.setEdgeLabel(current_vertex, neighbor, "DISCOVERY");
+          // keep track that we visited this neighbor
+          explored_vertices.at(neighbor) = true;
+          q.push(neighbor);
+        // if neighbor vertex has been VISITED already and edge is UNEXPLORED, set to CROSS edge
+        } else if (g.getEdgeLabel(current_vertex, neighbor) == "UNEXPLORED") {
+          // make sure we don't set edge as CROSS multiple times
+          g.setEdgeLabel(current_vertex, neighbor, "CROSS");
+        }
+      }
+    }
+    return path;
+}
+
 vector<Vertex> BFS::BFS_get_path(Graph g, Vertex source, Vertex dest) {
+    map<Vertex, bool> explored_vertices;
     // Ensure that input airports are valid
     if (!g.vertexExists(source)) {
       cerr << "Source airport does not exist" << endl;

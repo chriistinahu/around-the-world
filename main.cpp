@@ -30,6 +30,19 @@ int main(int argc, char* argv[]) {
     args.push_back(argv[i]);
   }
 
+  ifstream routes_file(args[1]);
+  ifstream airports_file(args[0]);
+
+  if (!routes_file) {
+    cerr << "Route file does not exist" << endl;
+    return EXIT_FAILURE;
+  }
+
+  if (!airports_file) {
+    cerr << "Airport file does not exist" << endl;
+    return EXIT_FAILURE;
+  }
+  
   BFS bfs;
   Graph g = createGraph(args[1], args[0]);
   Vertex source_ = args[2];
@@ -45,6 +58,20 @@ int main(int argc, char* argv[]) {
   }
   cout << dest_ << endl;
   cout << endl;
+
+  path = bfs.BFS_whole(g, source_);
+  cout << "___________________________________________________________________________" << endl;
+  cout << "\n---- BFS TRAVERSAL ON WHOLE GRAPH FROM " << source_ << " ----" << endl;
+  cout << endl;
+  if (path.empty()) {
+    cout << "Path does not exist" << endl;
+  } else {
+    for (size_t i = 0; i < path.size() - 1; i++) {
+    cout << g.airportMap.at(path[i]).getID() << " -> ";
+    }
+    cout << dest_ << endl;
+    cout << endl;
+  }
 
   cout << "___________________________________________________________________________" << endl;
   cout << "\n---- DIJKSTRAS - FIND SHORTEST PATH FROM " << source_ << " TO ALL CONNECTIONS" << " ----" << endl;

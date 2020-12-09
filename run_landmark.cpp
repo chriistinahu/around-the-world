@@ -30,6 +30,19 @@ int main(int argc, char* argv[]) {
     args.push_back(argv[i]);
   }
 
+  ifstream routes_file(args[1]);
+  ifstream airports_file(args[0]);
+
+  if (!routes_file) {
+    cerr << "Route file does not exist" << endl;
+    return EXIT_FAILURE;
+  }
+
+  if (!airports_file) {
+    cerr << "Airport file does not exist" << endl;
+    return EXIT_FAILURE;
+  }
+  
   Landmark l;
   Graph g = createGraph(args[1], args[0]);
 
