@@ -10,10 +10,14 @@
 
 using std::string;
 
+// In the context of our data, a Vertex represents an airport. 
+// The value of Vertex is the airport IATA code
 typedef string Vertex;
 
 /**
  * Represents an edge in a graph; used by the Graph class.
+ * In the context of our data, an edge represents a route from a 
+ * source airport to a destination airport.
  *
  * @author Sean Massung
  * @date Spring 2012

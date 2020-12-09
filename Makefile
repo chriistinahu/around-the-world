@@ -10,12 +10,11 @@ OBJS_DIR = .objs
 EXE_BFS = run_bfs
 OBJS_BFS = $(OBJS_DIR)/run_bfs.o $(OBJS_DIR)/bfs.o $(OBJS_DIR)/graph.o $(OBJS_DIR)/loader.o $(OBJS_DIR)/route.o $(OBJS_DIR)/airport.o
 
-
 EXE_DIJ = run_dijkstra
 OBJS_DIJ = $(OBJS_DIR)/run_dijkstra.o $(OBJS_DIR)/dijkstra.o $(OBJS_DIR)/graph.o $(OBJS_DIR)/loader.o $(OBJS_DIR)/route.o $(OBJS_DIR)/airport.o
 
 EXE_LANDMARK = run_landmark
-OBJS_LANDMARK = $(OBJS_DIR)/run_landmark.o $(OBJS_DIR)/landmark.o $(OBJS_DIR)/graph.o $(OBJS_DIR)/loader.o $(OBJS_DIR)/route.o $(OBJS_DIR)/airport.o
+OBJS_LANDMARK = $(OBJS_DIR)/run_landmark.o $(OBJS_DIR)/landmark.o $(OBJS_DIR)/dijkstra.o $(OBJS_DIR)/graph.o $(OBJS_DIR)/loader.o $(OBJS_DIR)/route.o $(OBJS_DIR)/airport.o
 
 CLEAN_RM = $(EXE_BFS) $(EXE_DIJ) $(EXE_LANDMARK)
 

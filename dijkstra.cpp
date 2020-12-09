@@ -7,10 +7,15 @@ using namespace traversals;
 typedef pair<double, Vertex> vPair;
 
 map<Vertex, double> Dijkstra::dijkstra_main(Graph g, Vertex source) {
+    // Ensure that input airport is valid
+    if (!g.vertexExists(source)) {
+      cerr << "Source airport does not exist" << endl;
+      return {};
+    }
+
     map<Vertex, double> distances;
     map<Vertex, Vertex> previous;
     priority_queue<vPair, vector<vPair>, greater<vPair>> pq;
-    // source_ = source;
 
     for (Vertex v: g.getVertices()) {
       // in beginning, assume distance from source vertex to all other verticies is INF
@@ -45,15 +50,22 @@ map<Vertex, double> Dijkstra::dijkstra_main(Graph g, Vertex source) {
         }
     }
 
-    // all_path_distances_ = distances;
     return distances;
 }
 
 vector<Vertex> Dijkstra::dijkstra_path(Graph g, Vertex source, Vertex dest) {
+    if (!g.vertexExists(source)) {
+      cerr << "Source airport does not exist" << endl;
+      return {};
+    } else if (!g.vertexExists(dest)) {
+      cerr << "Destination airport does not exist" << endl;
+      return {};
+    }
+
     map<Vertex, double> distances;
     map<Vertex, Vertex> previous;
     priority_queue<vPair, vector<vPair>, greater<vPair>> pq;
-
+    
     for (Vertex v: g.getVertices()) {
       // in beginning, assume distance from source vertex to all other verticies is INF
       distances.insert(pair<Vertex, double>(v, INT_MAX));
@@ -64,8 +76,6 @@ vector<Vertex> Dijkstra::dijkstra_path(Graph g, Vertex source, Vertex dest) {
     // distance from source to itself is 0
     pq.push(make_pair(0.0, source));
     distances[source] = 0.0;
-
-    Graph T(true, true);
         
     // loop while pq is not empty
     while(!pq.empty()){
@@ -90,16 +100,15 @@ vector<Vertex> Dijkstra::dijkstra_path(Graph g, Vertex source, Vertex dest) {
     }
 
     // if dest doesn't have a previous Vertex, a path doesn't exist
-    if (previous.count(dest) == 0) {
+    if (previous.at(dest) == "") {
+      cout << "Path does not exist" << endl;
       return {};
     }
-    
     Vertex current = dest;
     vector<Vertex> path;
     path.push_back(current);
     // as long as current vertex is not source vertex, keep adding to path (backwards)
     while (previous.at(current) != source) {
-      std::cout << current << " " << previous.at(current) << std::endl;
       path.push_back(previous.at(current));
       current = previous.at(current);
     }
@@ -110,10 +119,3 @@ vector<Vertex> Dijkstra::dijkstra_path(Graph g, Vertex source, Vertex dest) {
     return path;
 
 }
-
-// void Dijkstra::printToFile(string file_name) {
-//   ofstream myfile;
-//   myfile.open (file_name);
-//   myfile << "From source airport" << ;
-//   myfile.close();
-// }

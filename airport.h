@@ -4,6 +4,10 @@
 
 using std::string;
 
+/**
+ * The Airport class represents an airport that has the following information:
+ * 3 letter IATA ID, airport name, city, longitude, and latitude.
+ */
 class Airport {
   private:
     string airport_id_;

@@ -20,6 +20,7 @@ const string USAGE =
 "USAGE: ./run_bfs [AIRPORTS_FILE] [ROUTES_FILE] [SOURCE_ID] [DEST_ID]\n";
 
 int main(int argc, char* argv[]) {
+  // If there aren't enough arguments, return usage message
   if (argc < 5) {
     cerr << USAGE << endl;
     return -1;
@@ -34,12 +35,18 @@ int main(int argc, char* argv[]) {
   Graph g = createGraph(args[1], args[0]);
 
   vector<Vertex> path = bfs.BFS_get_path(g, args[2], args[3]);
+  
   cout << "------------------------------------------------------" << endl;
   cout << "Path from " << g.airportMap.at(args[2]).getName() << " to " << g.airportMap.at(args[3]).getName() << ":" << endl;
   cout << endl;
-  for (size_t i = 0; i < path.size() - 1; i++) {
+  if (path == {}) {
+    cout << "Path does not exist" << endl;
+  } else {
+    for (size_t i = 0; i < path.size() - 1; i++) {
     cout << g.airportMap.at(path[i]).getID() << " -> ";
+    }
+    cout << args[3] << endl;
+    cout << endl;
   }
-  cout << args[3] << endl;
-  cout << endl;
+  
 }

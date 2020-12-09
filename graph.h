@@ -43,7 +43,7 @@ using namespace std;
 
 /**
  * Represents a graph; used by the GraphTools class.
- *
+ * In the context of our data, a graph represents airports (vertices) and routes (edges).
  */
 class Graph
 {
