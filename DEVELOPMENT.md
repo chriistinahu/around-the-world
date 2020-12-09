@@ -26,3 +26,12 @@
   - Implemented our last algorithm, Landmark path
   - Started creating executables which users can customize their arguments using the command line
   - Wrote first draft of report, presentation script, and readme
+
+## December 8 Meeting
+  - Implemented executables
+  - Finished documentation
+  - Added handling of invalid airport codes and invalid paths
+  - Added tests to check for invalid user input
+  - Added tests for checking that traversals work for larger dataset
+  - Finished presentation script, report, and readme
+
