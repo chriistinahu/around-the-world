@@ -12,9 +12,15 @@ For Dijkstra we implemented two functions; one is able to calculate the shortest
 
 For Landmark Path, we were able to find the shortest path considering the distances between a source and destination airport, with the condition that a third airport must also be visited during the process. Since this algorithm requires two traversals, one from source to landmark airport and another from the landmark airport to the destination airport, we used two Dijkstra traversals to find the shortest paths. 
 
-We also created executables for running the main file, which runs all of the traversals at once, as well as running each traversal individually. Each traversal other than Dijkstra has a single output. For Dijkstra, we have two outputs, one for finding the shortest distance between a source and a destination airport, and another displaying the shortest distances from a source to ALL airports in the graph. Below is a sample output when running Dijkstra’s algorithm:
+We also created executables for running the main file, which runs all of the traversals at once, as well as running each traversal individually. Each traversal other than Dijkstra has a single output. For Dijkstra, we have two outputs, one for finding the shortest distance between a source and a destination airport (same format as the other two traversals), and another displaying the shortest distances from a source to ALL airports in the graph. Below is a sample output when running Dijkstra’s algorithm:
 
+**Output Common to All Three Traversals**:
 
+<img src="https://github-dev.cs.illinois.edu/cs225-fa20/ch35-amyyq2-xinranh2/blob/master/readme_media/dijkstra_2.png" width="900">
+
+**Output Unique to Dijkstra**:
+
+<img src="https://github-dev.cs.illinois.edu/cs225-fa20/ch35-amyyq2-xinranh2/blob/master/readme_media/dijkstra_1.png" width="400">
 
 
 An interesting discovery that we made is that Los Angeles International Airport does not have direct flights to Kansai International Airport which is surprising since Los Angeles International Airport seems to fly to many major international airports. It was also interesting to discover that there is an airport in Peru, Tarapoto Airport, that only flies to two other airports in the world. Furthermore, we learned that sometimes, the direct flight between two airports is not always the shortest path!
