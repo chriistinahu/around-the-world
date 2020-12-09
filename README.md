@@ -8,7 +8,7 @@
 - Make sure that functions can be ran with some sort of customized input.
 - Code should work with data files that look like as it should be specified in the readme. (ex. If readme says file should look like “name,age,school” then the test data file that they use will be in that format)**
 
-## Files
+## File Format
 
 
 
@@ -22,8 +22,8 @@ For Landmark, there will be an extra `<LANDMARK_ID>` argument at the end.
 
 ### Argument Definitions
 
-- `AIRPORTS_FILE`: Must be in CSV file format. Please refer to the [Files](#files) section to see what the file should look like
-- `ROUTES_FILE`: Must be in CSV file format. Please refer to the [Files](#files) section to see what the file should look like
+- `AIRPORTS_FILE`: Must be in CSV file format. Please refer to the [File Format](#file-format) section to see what the file should look like
+- `ROUTES_FILE`: Must be in CSV file format. Please refer to the [File Format](#file-format) section to see what the file should look like
 - `SOURCE_ID`: Must be a string, the ICAO airport code of the source airport. (ex. ORD, LAX, JFK, etc)
 - `DEST_ID`: Must be a string, the ICAO airport code of the destination airport. (ex. ORD, LAX, JFK, etc)
 - `LANDMARK_ID`: Must be a string, the ICAO airport code of the landmark airport to pass through. (ex. ORD, LAX, JFK, etc)
@@ -47,6 +47,11 @@ For Landmark, there will be an extra `<LANDMARK_ID>` argument at the end.
 
 After running the executable for a traversal, you should see the resulting path print out in the terminal. It will be in the format of: `source_airport -> airport_2 -> airport_3 -> dest_airport`
 
+Below is a sample output:
+
+<img src="https://github-dev.cs.illinois.edu/cs225-fa20/ch35-amyyq2-xinranh2/blob/master/readme_media/dijkstra_1.png" width="800">
+
+
 For Dijkstra, there is an additional output being printed. Since Dijkstra is also able to find the shortest path from a source to every other airport, you should see something in the format of: 
 
 `dest_1 | distance`
@@ -57,7 +62,8 @@ Where `dest_i` is the destination airport and `distance` is the shortest distanc
 
 Below is a sample output:
 
-[INCLUDE IMAGE HERE]
+<img src="https://github-dev.cs.illinois.edu/cs225-fa20/ch35-amyyq2-xinranh2/blob/master/readme_media/dijkstra_2.png" width="500">
+
 
 ## Tests
 
