@@ -2,7 +2,7 @@
 
 *Contributors: Amy Qian, Cindia Hua, Christina Hu*
 
-<img src="https://github-dev.cs.illinois.edu/cs225-fa20/ch35-amyyq2-xinranh2/blob/master/readme_media/cute_plane.jpg" width="500">
+<img src="https://github.com/chriistinahu/around-the-world/blob/master/readme_media/cute_plane.jpg" width="500">
 
 Have you ever wondered what the shortest path between O'Hare to John Wayne Aiport is? What about the shortest distance from O'Hare to all of the other aiports in the world? Or the shortest distance from O'Hare to Haneda Airport but you also *really, really* want to pass through John F. Kennedy International Aiport at the same time? Well, we've got you covered! Using the hottest travesals known as BFS, Dijkstra, and Landmark Path, you now have a way to find out all of this information and more to your heart's content! 
 
@@ -22,22 +22,22 @@ For this project to compile, you will need two CSV text files: one containing ai
 
 This file should contain the following attributes:
 
-<img src="https://github-dev.cs.illinois.edu/cs225-fa20/ch35-amyyq2-xinranh2/blob/master/readme_media/airport_1.png" width="600">
+<img src="https://github.com/chriistinahu/around-the-world/blob/master/readme_media/airport_1.png" width="600">
 
 Here is a sample of what a few rows of data could look like:
 
-<img src="https://github-dev.cs.illinois.edu/cs225-fa20/ch35-amyyq2-xinranh2/blob/master/readme_media/airport_2.png" width="1000">
+<img src="https://github.com/chriistinahu/around-the-world/blob/master/readme_media/airport_2.png" width="1000">
 
 
 ### Routes Text File
 
 This file should contain the following attributes:
 
-<img src="https://github-dev.cs.illinois.edu/cs225-fa20/ch35-amyyq2-xinranh2/blob/master/readme_media/route_1.png" width="850">
+<img src="https://github.com/chriistinahu/around-the-world/blob/master/readme_media/route_1.png" width="850">
 
 Here is a sample of what a few rows of data could look like:
 
-<img src="https://github-dev.cs.illinois.edu/cs225-fa20/ch35-amyyq2-xinranh2/blob/master/readme_media/route_2.png" width="200">
+<img src="https://github.com/chriistinahu/around-the-world/blob/master/readme_media/route_2.png" width="200">
 
 
 ## Executable Instructions
@@ -83,7 +83,7 @@ For Landmark, there will be an extra `<LANDMARK_ID>` argument at the end.
 
 `./run_landmark <AIRPORTS_FILE> <ROUTES_FILE> <SOURCE_ID> <DEST_ID> <LANDMARK_ID>`
 
-<img src="https://github-dev.cs.illinois.edu/cs225-fa20/ch35-amyyq2-xinranh2/blob/master/readme_media/sample_input.gif" width="850">
+<img src="https://github.com/chriistinahu/around-the-world/blob/master/readme_media/sample_input.gif" width="850">
 
 ## Output
 
@@ -91,13 +91,13 @@ After running the executable for a traversal, you should see the resulting path 
 
 Below is a sample output:
 
-<img src="https://github-dev.cs.illinois.edu/cs225-fa20/ch35-amyyq2-xinranh2/blob/master/readme_media/dijkstra_2.png" width="850">
+<img src="https://github.com/chriistinahu/around-the-world/blob/master/readme_media/dijkstra_2.png" width="850">
 
 For BFS, there is an additional output being printed. In the terminal, you will see the order in which the graph is traversed from the source (in-order traversal).
 
 Below is a sample output:
 
-<img src="https://github-dev.cs.illinois.edu/cs225-fa20/ch35-amyyq2-xinranh2/blob/master/readme_media/bfs_output.png" width="850">
+<img src="https://github.com/chriistinahu/around-the-world/blob/master/readme_media/bfs_output.png" width="850">
 
 For Dijkstra, there is an additional output being printed. Since Dijkstra is also able to find the shortest path from a source to every other airport, you should see something in the format of: 
 
@@ -109,7 +109,7 @@ Where `dest_i` is the destination airport and `distance` is the shortest distanc
 
 Below is a sample output:
 
-<img src="https://github-dev.cs.illinois.edu/cs225-fa20/ch35-amyyq2-xinranh2/blob/master/readme_media/dijkstra_1.png" width="500">
+<img src="https://github.com/chriistinahu/around-the-world/blob/master/readme_media/dijkstra_1.png" width="500">
 
 
 ## Tests
