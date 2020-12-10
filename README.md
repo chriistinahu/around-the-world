@@ -48,7 +48,7 @@ In order to run `main`, which runs BFS, Dijkstra, and Landmark simultaneously, p
 
 `./main <AIRPORTS_FILE> <ROUTES_FILE> <SOURCE_ID> <DEST_ID> <LANDMARK_ID>`
 
-In order to run each of the traversals individually, please run `make run_traversal` and follow the following order of arguments:
+In order to run each of the traversals individually, please run `make run_traversal` (where `traversal` is the traversal name) and follow the following order of arguments:
 
 `make run_traversal`
 
