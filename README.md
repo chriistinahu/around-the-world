@@ -126,4 +126,4 @@ To run tests for the specific traversals, run with:
 
 ## Video Presentation
 
-Our final presentation video: [include link here]
+To watch our final presentation video, click [here](https://www.youtube.com/watch?v=QTyZWZLwe5U)!
